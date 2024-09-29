@@ -40,15 +40,20 @@ function createListElement(itemName) {
 }
 
 const trashButton = document.querySelectorAll('.delete-btn')
+const warning = document.getElementById('warn')
+const closeWarning = document.getElementById('close')
 
 for (let i = 0; i < trashButton.length; i++) {
   trashButton[i].addEventListener('click', (e) => {
     const listItem = e.target.closest('li')
     if (listItem) {
       listItem.remove()
+      warning.style.display = 'flex'
     }
   })
 }
+
+closeWarning.addEventListener('click', () => (warning.style.display = 'none'))
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()

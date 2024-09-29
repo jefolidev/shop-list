@@ -114,9 +114,49 @@ li {
   }
   & button {
     position: relative;
-    cursor: pointer;
-    inset: 0;
     z-index: 1;
+    inset: 0;
+
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+#warn {
+  width: 100%;
+  padding: 1rem;
+
+  background-color: var(--color-brand-danger);
+  border-radius: 0.75rem;
+
+  color: var(--white);
+  font-weight: var(--font-semibold);
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  display: none;
+
+  & .danger-icon {
+    background-image: url(../assets/icons/danger.svg);
+    background-position: center;
+    background-size: cover;
+
+    width: 1rem;
+    height: 1rem;
+  }
+  & .close-icon {
+    background-image: url(../assets/icons/close.svg);
+    background-position: center;
+    background-size: cover;
+
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: auto;
+
+    background-color: transparent;
+    cursor: pointer;
   }
 }
 
