@@ -8,7 +8,7 @@ function createListElement(itemName) {
 
   const checkboxImage = document.createElement('div')
   const labelName = document.createElement('div')
-  const trashImage = document.createElement('div')
+  const trashImage = document.createElement('button')
   const checkboxInput = document.createElement('input')
 
   checkboxImage.className = 'checkbox-image'
@@ -16,20 +16,44 @@ function createListElement(itemName) {
   labelName.id = 'item-name'
   labelName.textContent = itemName
 
-  trashImage.id = 'trash-icon'
+  trashImage.className = 'trash-icon delete-btn'
+  trashImage.type = 'button'
 
   checkboxInput.type = 'checkbox'
   checkboxInput.id = 'checkbox-input'
 
   list.prepend(createListItem)
 
+  createListItem.append(checkboxInput)
   createListItem.append(checkboxImage)
   createListItem.append(labelName)
   createListItem.append(trashImage)
-  createListItem.append(checkboxInput)
+
+  trashImage.addEventListener('click', (e) => {
+    const listItem = e.target.closest('li')
+    if (listItem) {
+      listItem.remove()
+    }
+  })
+
+  itemInput.value = ''
+}
+
+const trashButton = document.querySelectorAll('.delete-btn')
+
+for (let i = 0; i < trashButton.length; i++) {
+  trashButton[i].addEventListener('click', (e) => {
+    const listItem = e.target.closest('li')
+    if (listItem) {
+      listItem.remove()
+    }
+  })
 }
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
-  createListElement(itemInput.value)
+
+  itemInput.value === ''
+    ? alert('Por favor, insira um nome antes de enviar.')
+    : createListElement(itemInput.value)
 })

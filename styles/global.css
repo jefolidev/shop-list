@@ -74,7 +74,6 @@ li {
     all: unset;
     position: absolute;
     inset: 0;
-    z-index: 0;
   }
 
   & .checkbox-image {
@@ -103,14 +102,21 @@ li {
     background-image: var(--checkbox-checked);
   }
 
-  & #trash-icon {
+  & .trash-icon {
     width: 1rem;
     height: 1rem;
+
     margin-left: auto;
 
     background-image: url(../assets/icons/trash.svg);
     background-position: center;
     background-size: cover;
+  }
+  & button {
+    position: relative;
+    cursor: pointer;
+    inset: 0;
+    z-index: 1;
   }
 }
 
@@ -121,7 +127,6 @@ h1 {
 
 button {
   border: none;
-  padding: 0.62rem 1.65rem;
 }
 
 input[type='text'] {

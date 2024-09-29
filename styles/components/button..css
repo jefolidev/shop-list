@@ -4,6 +4,7 @@
 
   background-color: var(--color-brand);
   border-radius: 0.75rem;
+  padding: 0.62rem 1.65rem;
 
   &:hover {
     background-color: var(--color-brand-hover);
